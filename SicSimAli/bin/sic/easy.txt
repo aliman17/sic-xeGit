@@ -1,0 +1,40 @@
+. Program v spremenljivke sum, diff, prod, quot in mod zapise rezultat
+.
+rac		START  0
+.
+first   LDA  	x
+        ADD		y
+        STA     sum
+.
+		LDA  	x
+        SUB		y
+        STA     diff
+.
+		LDA  	x
+        MUL		y
+        STA     prod
+.
+		LDA  	x
+        DIV		y
+        STA     quot
+.
+		LDA		x	
+zanka	COMP	y
+		JLT		konec
+		SUB		y
+		J		zanka
+konec	STA		mod
+.
+. KONCAJ
+halt    J      halt
+.
+. PODATKI
+x       WORD   10
+y		WORD   4
+.
+sum		WORD	0
+diff	WORD	22
+prod	RESW	1 . koliko wordow rezervira
+quot	RESW	1
+mod		RESW	1
+        END    first
